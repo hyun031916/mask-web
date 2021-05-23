@@ -18,11 +18,6 @@ def postGuestBook(request):
             return redirect('index')
     else:
         form = GuestBookForm()
-        # return render(
-        #     request,
-        #     'MaskGuestBook/GuestBook.html',
-        #     {'form': form}
-        # )
         return render(
             request,
             'MaskGuestBook/GuestBook.html',
