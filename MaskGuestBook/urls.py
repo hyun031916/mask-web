@@ -8,5 +8,5 @@ urlpatterns = [
     path('', views.index, name="index"),
     url(r'^keyboard', views.keyboard),
     path('index', views.index, name="index"),
-    path('GuestBook', views.GuestBook, name="GuestBook"),
+    path('postGuestBook', views.postGuestBook, name="postGuestBook"),
 ]
