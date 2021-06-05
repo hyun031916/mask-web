@@ -178,7 +178,3 @@ def live(request):
 #     mask.start()
 #
 #     return render(request, 'MaskGuestBook/live.html')
-
-
-
-
