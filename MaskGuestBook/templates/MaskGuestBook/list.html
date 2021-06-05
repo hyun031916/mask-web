@@ -1,62 +1,32 @@
 {% load static %}
+
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>게시판 - 목록</title>
-    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
 </head>
 <body>
-<header>
-    <div class="navbar navbar-dark bg-dark shadow-sm mb-3">
-        <div class="container d-flex justify-content-between">
-            <a href="/" class="navbar-brand d-flex align-items-center">
-                <strong>게시판</strong>
-            </a>
+{% for image in guests %}
+    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+    <div class="flipper">
+        <div class = 'front'>
+           <img src="{% static "resources/images/" %}{{ image.image_name }}.png"  width="300" height="200">
+        </div>
+        <div class = 'back'>츄
+            <div style="width: 300px; height: 200px; background-color: gray">
+                <h2>이름: {{ image.name }}</h2>
+                <h2>전화번호: {{ image.phone }}</h2>
+                <h2>메세지: {{ image.message }}</h2>
+            </div>
         </div>
     </div>
-</header>
-<div class="container">
-    <table class="table">
-        <thead class="thead-light">
-        <tr class="text-center">
-            <th scope="col">이름</th>
-<!--            <th scope="col">제목</th>-->
-            <th scope="col">전화번호</th>
-            <th scope="col">메세지</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for guest in guests %}
-        <tr class="text-center">
-           <th scope="row">
-               <span>{{ guest.name }}</span>
-           </th>
-        <!--   <td>-->
-        <!--       <a href="/post/{{ guest.name }}">-->
-        <!--           <span>{{ guest.name }}</span>-->
-        <!--       </a>-->
-        <!--   </td>-->
-           <td>
-               <span>{{ guest.phone }}</span>
-           </td>
-            <td>
-               <span>{{ guest.message }}</span>
-           </td>
-        <!--   <td>-->
-        <!--       <span>{{ board.created_date | date:"Y-m-d h:i" }}</span>-->
-        <!--   </td>-->
-        </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-    <div class="row">
-        <div class="col-auto mr-auto"></div>
-        <div class="col-auto">
-            <a class="btn btn-primary" href="/postGuestBook" role="button">글쓰기</a>
-        </div>
     </div>
-</div>
-<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+
+{% endfor %}
+<a href="{% url 'live' %}">사진찍기</a>
+
 </body>
 </html>
